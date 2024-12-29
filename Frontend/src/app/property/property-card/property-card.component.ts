@@ -1,4 +1,4 @@
-import { Component, NgModule } from "@angular/core";
+import { Component, Input } from "@angular/core";
 
 @Component(
     {   standalone:false,
@@ -12,10 +12,5 @@ import { Component, NgModule } from "@angular/core";
 
 export class PropertyCardComponent
 {
-  Property: any = {
-    "Id":1,
-    "Name": "Birla House",
-    "Type":"House",
-    "Price":12000
-  }
+  @Input() property: any; // Input property to receive data from parent Component
 }
