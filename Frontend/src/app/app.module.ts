@@ -6,14 +6,31 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 //import { HttpClientModule } from '@angular/common/http'
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { HosuingService } from './services/hosuing.service';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
-  declarations: [
+
+  declarations: 
+  [
     AppComponent,
     NavBarComponent
-   ],
-  imports: [BrowserModule , PropertyModule],
-  providers: [provideHttpClient(withInterceptorsFromDi()), HosuingService],
+  ],
+
+  imports: 
+  [
+    BrowserModule ,
+    PropertyModule,
+    RouterModule
+  ],
+
+  providers: 
+  [
+    provideHttpClient(withInterceptorsFromDi()),
+    HosuingService
+  ],
+
   bootstrap: [AppComponent]
+
 })
+
 export class AppModule {}
