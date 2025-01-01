@@ -1,4 +1,5 @@
 import { Component, Input } from "@angular/core";
+import { IProperty } from "../iProperty.interface";
 
 @Component(
     {   standalone:false,
@@ -12,5 +13,11 @@ import { Component, Input } from "@angular/core";
 
 export class PropertyCardComponent
 {
-  @Input() property: any; // Input property to receive data from parent Component
+  @Input() property: IProperty = 
+  {
+    Id : 1,
+    Name: 'default',
+    Type: 'default',
+    Price: 0
+  };
 }
