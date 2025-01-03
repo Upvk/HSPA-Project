@@ -7,6 +7,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { HosuingService } from './services/hosuing.service';
 import { RouterModule } from '@angular/router';
+import { routes } from 'app/app.routes';
 
 @NgModule({
 
@@ -20,7 +21,7 @@ import { RouterModule } from '@angular/router';
   [
     BrowserModule ,
     PropertyModule,
-    RouterModule
+    RouterModule.forRoot(routes)
   ],
 
   providers: 
