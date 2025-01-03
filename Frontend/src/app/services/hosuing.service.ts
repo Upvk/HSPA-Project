@@ -30,7 +30,7 @@ export class HosuingService {
     );
   }
 
-  getPropertyDetail(propertyId : string) 
+  getPropertyDetail(propertyId : number) 
   {
     return this.http.get<{[key:string]:IProperty}>('data/properties.Json').pipe(
       map(data=>

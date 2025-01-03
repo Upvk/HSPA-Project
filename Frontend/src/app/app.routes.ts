@@ -6,5 +6,6 @@ import { PropertyDetailComponent } from './property/property-detail/property-det
 export const routes : Routes = [
     {path: '', component: PropertyListComponent},
     {path: 'add-property', component: AddPropertyComponent},
-    {path: 'property-detail/:id', component:PropertyDetailComponent}
+    {path: 'property-detail/:id', component:PropertyDetailComponent},
+    {path: '**', component:PropertyListComponent}
   ];

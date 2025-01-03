@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HosuingService } from 'app/services/hosuing.service';
 import { IProperty } from '../iProperty.interface';
 
@@ -12,14 +12,14 @@ import { IProperty } from '../iProperty.interface';
 
 export class PropertyDetailComponent implements OnInit{
  
-  propertyId!: string;
+  public propertyId!: number;
   propertyDetail : IProperty | undefined;
 
-  constructor(private activatedRoute  : ActivatedRoute, private housingService : HosuingService){}
+  constructor(private activatedRoute  : ActivatedRoute, private housingService : HosuingService, private router : Router){}
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(
-      params => { this.propertyId = params['id']; console.log('propertyId : '+this.propertyId) }
+      params => { this.propertyId = +(params['id']); console.log('propertyId : '+this.propertyId) }
     );
 
     this.housingService.getPropertyDetail(this.propertyId).subscribe(
@@ -28,4 +28,13 @@ export class PropertyDetailComponent implements OnInit{
       }
     );
   }
+
+  
+incrementByOne()
+{
+  this.propertyId += 1;
+  this.router.navigate(['property-detail',this.propertyId])
 }
+
+}
+
