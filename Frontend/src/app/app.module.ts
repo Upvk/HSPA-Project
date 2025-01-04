@@ -8,6 +8,7 @@ import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
 import { HosuingService } from './services/hosuing.service';
 import { RouterModule } from '@angular/router';
 import { routes } from 'app/app.routes';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
 
@@ -21,7 +22,8 @@ import { routes } from 'app/app.routes';
   [
     BrowserModule ,
     PropertyModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    FormsModule 
   ],
 
   providers: 
