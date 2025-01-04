@@ -1,7 +1,8 @@
 
     <div class="card" >
         <div class="card-img-wrapper">
-            <img class="propImg card-img-top" src="assets/images/house_default.png" alt="Image_default">
+            <img *ngIf="property.Image" class="propImg card-img-top" src="assets/images/{{property.Image}}.jpeg" alt="Image_default">
+            <img *ngIf="!property.Image" class="propImg card-img-top" src="assets/images/house_default.png" alt="Image_default">
     
         
             <ul class="list-inline text-center card-member-icons animate">

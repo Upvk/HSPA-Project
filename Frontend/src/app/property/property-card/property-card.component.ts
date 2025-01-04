@@ -16,6 +16,7 @@ export class PropertyCardComponent
   @Input() property: IProperty = 
   {
     Id : 1,
+    SellRent : 1,
     Name: 'default',
     Type: 'default',
     Price: 0

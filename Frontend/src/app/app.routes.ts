@@ -4,7 +4,7 @@ import { AddPropertyComponent } from './property/add-property/add-property.compo
 import { PropertyDetailComponent } from './property/property-detail/property-detail.component';
 
 export const routes : Routes = [
-    {path: '', component: PropertyListComponent},
+    {path: 'property-list', component: PropertyListComponent},
     {path: 'add-property', component: AddPropertyComponent},
     {path: 'property-detail/:id', component:PropertyDetailComponent},
     {path: '**', component:PropertyListComponent}
