@@ -11,7 +11,7 @@ import { IProperty } from '../iProperty.interface';
 })
 
 export class PropertyDetailComponent implements OnInit{
- 
+
   public propertyId!: number;
   propertyDetail : IProperty | undefined;
 
@@ -29,11 +29,11 @@ export class PropertyDetailComponent implements OnInit{
     );
   }
 
-  
+
 incrementByOne()
 {
   this.propertyId += 1;
-  this.router.navigate(['property-detail',this.propertyId])
+  this.router.navigate(['property/detail/',this.propertyId])
 }
 
 }
