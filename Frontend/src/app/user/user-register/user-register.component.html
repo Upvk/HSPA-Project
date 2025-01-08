@@ -1,1 +1,41 @@
-<p>user-register works!</p>
+<div class="card">
+    <div class="card-header"> Register </div>
+    <div class="card-body" >
+        <form [formGroup]="registerationForm" (ngSubmit)="OnSubmit()">
+            <div class="form-group col-12">
+                <label for="name" >Name</label>
+                <input type="text" class="form-control" formControlName="name">
+            </div>
+            <br>
+            <div class="form-group col-12">
+                <label for="type" >Email</label>
+                <input type="text" class="form-control" formControlName="email">
+            </div>
+            <br>
+            <div class="form-group col-12">
+                <label for="price" >Password</label>
+                <input type="password" class="form-control" formControlName="password">
+            </div>
+            <br>
+            <div class="form-group col-12">
+                <label for="price" >Confirm Password</label>
+                <input type="password" class="form-control" formControlName="confirmPassword">
+            </div>
+            <br>
+            <div class="form-group col-12">
+                <label for="price" >Mobile Number</label>
+                <input type="text" class="form-control" formControlName="mobileNumber">
+            </div>
+            <div>
+                {{ registerationForm.value | json}} <br>
+                {{ registerationForm.valid}}
+            </div>
+
+            <br> <br>
+            <div class="form-group col-12">
+                <button class="btn btn-primary me-2" type="submit">Save</button>
+                <button class="btn btn-primary" type="reset">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
