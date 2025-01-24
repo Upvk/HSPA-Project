@@ -8,3 +8,15 @@ export function matchingpassword(): ValidatorFn {
     return password === confirmPassword ? null : { notMatched: true };
   };
 }
+
+export function passwordMatchValidator(): ValidatorFn {
+  return (formGroup: AbstractControl): ValidationErrors | null => {
+    const password = formGroup.get('password')?.value;
+    const confirmPassword = formGroup.get('confirmPassword')?.value;
+
+    if (password && confirmPassword && password !== confirmPassword) {
+      return { passwordMismatch: true }; // Validation error
+    }
+    return null; // Valid
+  };
+}

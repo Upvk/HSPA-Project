@@ -1,41 +1,86 @@
 <div class="card">
     <div class="card-header"> Register </div>
-    <div class="card-body" >
-        <form [formGroup]="registerationForm" (ngSubmit)="OnSubmit()">
-            <div class="form-group col-12">
-                <label for="name" >Name</label>
-                <input type="text" class="form-control" formControlName="name">
-            </div>
-            <br>
-            <div class="form-group col-12">
-                <label for="type" >Email</label>
-                <input type="text" class="form-control" formControlName="email">
-            </div>
-            <br>
-            <div class="form-group col-12">
-                <label for="price" >Password</label>
-                <input type="password" class="form-control" formControlName="password">
-            </div>
-            <br>
-            <div class="form-group col-12">
-                <label for="price" >Confirm Password</label>
-                <input type="password" class="form-control" formControlName="confirmPassword">
-            </div>
-            <br>
-            <div class="form-group col-12">
-                <label for="price" >Mobile Number</label>
-                <input type="text" class="form-control" formControlName="mobileNumber">
-            </div>
-            <div>
-                {{ registerationForm.value | json}} <br>
-                {{ registerationForm.valid}}
-            </div>
-
-            <br> <br>
-            <div class="form-group col-12">
-                <button class="btn btn-primary me-2" type="submit">Save</button>
-                <button class="btn btn-primary" type="reset">Cancel</button>
-            </div>
-        </form>
+    <div class="card-body">
+      <form [formGroup]="registrationForm" (ngSubmit)="OnSubmit()">
+        <!-- Name -->
+        <div class="form-group col-12">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" formControlName="userName" />
+          <span *ngIf="userName?.invalid && userName?.touched" class="error-block">
+            Please provide a name!
+          </span>
+        </div>
+        <br />
+  
+        <!-- Email -->
+        <div class="form-group col-12">
+          <label for="type">Email</label>
+          <input type="text" class="form-control" formControlName="email" />
+          <span *ngIf="email?.invalid && email?.touched" class="error-block">
+            <span *ngIf="email?.hasError('required')">Please provide an email!</span>
+            <span *ngIf="email?.hasError('email')">Please provide a correct email!</span>
+          </span>
+        </div>
+        <br />
+  
+        <!-- Password -->
+        <div class="form-group col-12">
+          <label for="price">Password</label>
+          <input type="password" class="form-control" formControlName="password" />
+          <span *ngIf="password?.invalid && password?.touched" class="error-block">
+            <span *ngIf="password?.hasError('required')">Please provide a password!</span>
+            <span *ngIf="password?.hasError('minlength')">
+              Password must be at least 8 characters long.
+            </span>
+          </span>
+        </div>
+        <br />
+  
+        <!-- Confirm Password -->
+        <div class="form-group col-12">
+          <label for="price">Confirm Password</label>
+          <input type="password" class="form-control" formControlName="confirmPassword" />
+          <span *ngIf="confirmPassword?.invalid && confirmPassword?.touched" class="error-block">
+            <span *ngIf="confirmPassword?.hasError('required')">Please confirm your password.</span>
+          </span>
+          <span
+            *ngIf="registrationForm?.hasError('notMatched') && confirmPassword?.valid"
+            class="error-block"
+          >
+            Passwords do not match.
+          </span>
+        </div>
+        <br />
+  
+        <!-- Mobile Number -->
+        <div class="form-group col-12">
+          <label for="price">Mobile Number</label>
+          <input type="text" class="form-control" formControlName="mobileNumber" />
+          <span *ngIf="mobileNumber?.invalid && mobileNumber?.touched" class="error-block">
+            <span *ngIf="mobileNumber?.hasError('required')">Please provide a Mobile Number!</span>
+            <span *ngIf="mobileNumber?.hasError('invalidMobileNumber')">
+              Mobile Number must be 10 digits.
+            </span>
+          </span>
+        </div>
+  
+        <div>
+          {{ registrationForm.value | json }} <br />
+          {{ registrationForm.valid }}
+        </div>
+  
+        <div>
+          Hello: {{ registrationForm.errors?.['notMatched'] }}
+        </div>
+  
+        <br /><br />
+        <div class="form-group col-12">
+          <button class="btn btn-primary me-2" type="submit" [disabled]="!registrationForm.valid">
+            Save
+          </button>
+          <button class="btn btn-primary" type="reset">Cancel</button>
+        </div>
+      </form>
     </div>
-</div>
+  </div>
+  
